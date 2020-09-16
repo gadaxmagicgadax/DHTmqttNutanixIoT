@@ -10,8 +10,8 @@ Bill of materials:
 * UBLOX - neo6m as GPS receiver
 * LCD1602 lcd to display data from micropython code in ESP32
 * A poteziometer (10K) for lcd
-* A USB cable
-* A powerbank. (initially I tried with a power supply with a battery. No way! the UBLOX neo6m needs 5V and 0.5 Ampere stable )
+* A USB cable (the one for Android phone battery charge will do!)
+* A powerbank. (initially I tried with a power supply with a battery. No way! the ESP32 WiFi needs 5V and and 400 mA stable)
 
 Best will be to mount on the breadboard one piece at a time and check if it is working. I've left in this git hub some tests I did.
 
@@ -55,7 +55,7 @@ As a prerequisite you will have to get the certificate files for the MQTT and SS
 
 Why a smartphone hotspot ? Because if you want to test the device you should move around  to get different latitude/longitude/altitude data. I have a car with USB port so I used a USB cable and connect the ESP32 directly in my car. My iphone provided the hotspot for the WIFI.
 
-The upload.sh chell file containes the exact list of uploads you have to do:
+The upload.sh shell file containes the exact list of uploads you have to do:
 
 ```
 #!/bin/bash
