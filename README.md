@@ -15,7 +15,14 @@ Bill of materials:
 
 Best will be to mount on the breadboard one piece at a time and check if it is working. I've left in this git hub some tests I did.
 
-This project has been implemented on Mac OS. 
+This project has been implemented on Mac OS.
+
+![1600275478868.jpeg](./1600275478868.jpeg)
+
+Here below the table with all the links (see also the file BBpinslinks.xlsx)
+
+![1600275582196.png](./1600275582196.png)
+
 
 # Preparing ESP32
 
@@ -26,6 +33,7 @@ You need *esptool* and *ampy* tools you can install with :
 ```
 pip install adafruit-ampy
 pip install esptool
+pip install rshell
 ```
 
 Get the micropython firmware *esp32-idf3-20191220-v1.12.bin* from [https://micropython.org/download/esp32/](https://micropython.org/download/esp32/)
@@ -68,4 +76,65 @@ ampy -p /dev/cu.SLAB_USBtoUART -b 115200 put main.py
 echo "upload boot.py"
 ampy -p /dev/cu.SLAB_USBtoUART -b 115200 put boot.py
 
+```
+
+You can use tools like Thonny or uPyCraft to upload the code and run tests and troubleshooting. I did but I had lot of problems so I decided to use *rshell*
+
+If you connect the usb cable from ESP32 to your MAC , use this command:
+
+````
+rshell -p /dev/cu.SLAB_USBtoUART -b 115200
+````
+
+at the prompt run:
+
+*repl*
+
+then
+
+ctr-D (this will reboot the ESP32)
+
+You will see in your terminal all the prints of your micropython code.
+
+Here below an example with my MAC (lat/lon/altitude are 0 because I was at home and the GPS receiver works only in open air):
+
+```
+$ rshell -p /dev/cu.SLAB_USBtoUART -b 115200
+Using buffer-size of 32
+Connecting to /dev/cu.SLAB_USBtoUART (buffer-size 32)...
+Trying to connect to REPL  connected
+Testing if ubinascii.unhexlify exists ... Y
+Retrieving root directories ... /1595946770019_CACertificate.crt/ /1595946770019_certificate.crt/ /1595946770019_privateKey.key/ /lcd_api.py/ /nodemcu_gpio_lcd.py/ /micropyGPS.py/ /main.py/ /boot.py/
+Setting time ... Sep 16, 2020 19:06:10
+Evaluating board_name ... pyboard
+Retrieving time epoch ... Jan 01, 2000
+Welcome to rshell. Use Control-D (or the exit command) to exit rshell.
+/Users/giovannigadaleta/micropython/DHTmqttNutanixIoT> repl
+Entering REPL. Use Control-X to exit.
+>
+MicroPython v1.12 on 2019-12-20; ESP32 module with ESP32
+Type "help()" for more information.
+>>> 
+>>> 
+MPY: soft reboot
+Connection successful
+('172.20.10.14', '255.255.255.240', '172.20.10.1', '172.20.10.1')
+main entered
+Connected to 151.0.230.202 MQTT broker, subscribed to b'weather/data' topic
+Temperature: 26.0 C
+Temperature: 78.8 F
+Humidity: 56.0 %
+b'$GPGSA,A,1,,,,,,,,,,,,,99.99,99.99,99.99*30\r\n'
+Satellites in use : 0
+b'$GPGSV,1,1,00*79\r\n'
+Satellites in use : 0
+b'$GPGLL,,,,,,V,N*64\r\n'
+Satellites in use : 0
+b'$GPRMC,,V,,,,,,,,,,N*53\r\n'
+Satellites in use : 0
+b'$GPVTG,,,,,,,,,N*30\r\n'
+Satellites in use : 0
+b'$GPGGA,,,,,,0,00,99.99,,,,,,*48\r\n'
+Satellites in use : 0
+{"measurement":"weather", "tags": { "Area": "Italy", "Location": "Aprilia" }, "fields": {"temperature" : "26","humidity" : "56","latitude" : 0.0,"longitude" : 0.0,"altitude" : 0.0}}
 ```
