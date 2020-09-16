@@ -17,7 +17,7 @@ Best will be to mount on the breadboard one piece at a time and check if it is w
 
 This project has been implemented on Mac OS.
 
-![1600275478868.jpeg](./1600275478868.jpeg)
+![Test Image 4]([https://github.com/gadaxmagicgadax/DHTmqttNutanixIoT/blob/master/ESP32-DHT11-UBlox-LCD.jpg])
 
 Here below the table with all the links (see also the file BBpinslinks.xlsx)
 
