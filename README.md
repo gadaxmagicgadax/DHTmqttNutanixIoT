@@ -17,11 +17,11 @@ Best will be to mount on the breadboard one piece at a time and check if it is w
 
 This project has been implemented on Mac OS.
 
-![Test Image 4]([https://github.com/gadaxmagicgadax/DHTmqttNutanixIoT/blob/master/ESP32-DHT11-UBlox-LCD.jpg])
+![BreadBoard](https://github.com/gadaxmagicgadax/DHTmqttNutanixIoT/tograh/master/ESP32-DHT11-UBlox-LCD.jpg)
 
 Here below the table with all the links (see also the file BBpinslinks.xlsx)
 
-![1600275582196.png](./1600275582196.png)
+![Links](https://github.com/gadaxmagicgadax/DHTmqttNutanixIoT/tograh/master/links.png)
 
 
 # Preparing ESP32
