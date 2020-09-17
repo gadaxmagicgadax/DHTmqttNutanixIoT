@@ -23,12 +23,11 @@ Here below the table with all the links (see also the file BBpinslinks.xlsx)
 
 !["Links"](links.png)
 
-
 # Preparing ESP32
 
 First of all you must prepare ESP32 to work with micropython.
 
-You need *esptool* and *ampy* tools you can install with :
+You need *esptool* and *ampy* tools. You can install with :
 
 ```
 pip install adafruit-ampy
